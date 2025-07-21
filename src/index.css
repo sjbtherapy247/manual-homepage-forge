@@ -2,41 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Simon Baker Workshop Manual Design System 
+Colors, typography, and layout tokens for authentic, professional design
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Workshop Manual Color Palette */
+    --background: 210 20% 97%;  /* Off-white background */
+    --foreground: 215 25% 13%;  /* Dark charcoal text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;  /* Pure white cards */
+    --card-foreground: 215 25% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 13%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Everton Blue - Primary Brand Color */
+    --primary: 220 100% 20%;  /* #003399 Everton Blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 220 100% 25%;  /* Lighter blue for hover */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary grays for subtle elements */
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 215 25% 13%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 15% 93%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 100% 20%;  /* Same as primary for consistency */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 20% 88%;
+    --input: 215 20% 92%;
+    --ring: 220 100% 20%;  /* Everton blue focus ring */
 
     --radius: 0.5rem;
+    
+    /* Workshop Manual specific tokens */
+    --manual-section-bg: 210 20% 99%;
+    --manual-border: 215 15% 85%;
+    --manual-shadow: 215 25% 13% / 0.08;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +111,41 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Workshop Manual Typography */
+  .font-heading {
+    font-family: 'Lora', serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Workshop Manual Components */
+  .manual-card {
+    @apply bg-card border border-manual-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .manual-section {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .manual-container {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .manual-grid {
+    @apply grid gap-8;
+  }
+  
+  .manual-button {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-primary-foreground bg-primary hover:bg-primary-hover transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring;
+  }
+  
+  .manual-tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground;
   }
 }
